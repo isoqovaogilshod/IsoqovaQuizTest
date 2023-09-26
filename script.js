@@ -47,7 +47,7 @@ let questions = [
   },
   {
     prompt: "9.Surxondaryo markazi qayer? ",
-    option: ["a.Jarqo'rg'on ", "b.Denov", "c.Termiz", " d.Boysun"],
+    option: ["a.Jarqo'rg'on ", "b.Denov", "c.Termiz", "d.Boysun"],
     answer: "c",
   },
   {
@@ -65,7 +65,13 @@ for (let i = 0; i < questions.length; i++) {
     alert("variant kiritmadingiz");
     continue;
   }
-  if (response == "exit" || response == "cancel" || response == "quit") {
+  if (
+    response == "exit" ||
+    response == "cancel" ||
+    response == "quit" ||
+    response == "close" ||
+    response == "chiqish"
+  ) {
     break;
   }
   if (
