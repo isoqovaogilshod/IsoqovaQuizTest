@@ -1,3 +1,7 @@
+let start = new Date();
+for (let i = 0; i < 100000; i++) {
+  let ds = i * i * i * i * i * i;
+}
 let questions = [
   {
     prompt: "1.O'zbekiston poytaxti?",
@@ -97,3 +101,5 @@ if (score === 10) {
 } else if (score === 0) {
   alert("Siz talabalikka tavsiya etilmadingiz 😐☹️😕");
 }
+let end = new Date();
+alert("sarflangan vaqt: " + `${Math.floor((end - start) / 1000)}` + "soniya");
