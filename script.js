@@ -56,6 +56,20 @@ let questions = [
     answer: "a",
   },
 ];
+// Email va loginni olish
+var email = prompt("Emailingizni kiriting:", "....@gamil.com");
+var login = prompt("Loginingizni kiriting:");
+
+// Foydalanuvchi kiritgan email va loginni alert orqali chiqarish
+alert(
+  "Sizning emailingiz: " +
+    email +
+    "\nSizning loginingiz: " +
+    login +
+    `\n siz yuqoridagi ma'lumotlariz bilan tesni boshlashiz mumkin`
+);
+
+let IELTS = confirm("sizda IELTS darajasi bormi?");
 stopApp: while (true) {
   let menu = +prompt(
     "0.Chiqish\n1.Testni boshlash \n2.Testni tahrirlash \n3.Test qo'shish \n4.Test o'chirish\n5. Savollar"
@@ -147,6 +161,9 @@ function quizTest(questions) {
       score++;
     }
   }
+  // if ((IELTS = true)) {
+  //   score += 10;
+  // }
 
   alert(
     " Siz " +
