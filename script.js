@@ -1,64 +1,64 @@
 let questions = [
   {
     question: "O'zbekiston poytaxti?",
-    option: ["a.Toshkent", "b.Boku", "c.London", "d.Istanbul"],
-    answer: "a",
+    option: ["Toshkent", "Boku", "London", "Istanbul"],
+    answer: "Toshkent",
   },
   {
     question: "O'zbekiston nechta davlat bilan chegaradosh ?",
-    option: ["a. 3ta", "b. 4ta", "c. 5ta", "d. 6ta"],
-    answer: "c",
+    option: ["3ta", "4ta", "5ta", "6ta"],
+    answer: "5ta",
   },
   {
     question: "Dunyodagi eng uzun daryo ?",
-    option: ["a.Amazonka", "b.Nil", "c.Volga", "d. Gang"],
-    answer: "b",
+    option: ["Amazonka", "Nil", "Volga", "Gang"],
+    answer: "Nil",
   },
   {
     question: "HTML ? ",
     option: [
-      "a.HyperText Makeup Language ",
-      "b.HyperText Markup List",
-      "c.HyperText Makeup List",
-      "d.HyperText Markup Language",
+      "HyperText Makeup Language ",
+      "HyperText Markup List",
+      "HyperText Makeup List",
+      "HyperText Markup Language",
     ],
-    answer: "d",
+    answer: "HyperText Markup Language",
   },
   {
     question: "Pi sonini qiymatini belgilang ? ",
-    option: ["a. 3.14", "b. 3.41 ", "c. 2.71", "d. 2.17"],
-    answer: "a",
+    option: ["3.14", "3.41 ", "2.71", "2.17"],
+    answer: "3.14",
   },
   {
     question:
       "JavaScript o'zgaruvchilari qaysi usulda e'lon qilinishi mumkin:? ",
-    option: ["a.var", "b.let", "c.const", "d.Hamma javob to'g'ri"],
-    answer: "d",
+    option: ["var", "let", "const", "Hamma javob to'g'ri"],
+    answer: "Hamma javob to'g'ri",
   },
   {
     question: "JavaScript nechta ma'lumot turiga ega?",
-    option: ["a.7 ta", "b.8 ta", "c.5 ta", "d.3 ta"],
-    answer: "b",
+    option: ["7 ta", "8 ta", "5 ta", "3 ta"],
+    answer: "8 ta",
   },
   {
     question: "Nechta fasl bor? ",
-    option: ["a.4 ta", "b.5 ta", "c.3 ta", "d.2 ta"],
-    answer: "a",
+    option: ["4 ta", "5 ta", "3 ta", "2 ta"],
+    answer: "4 ta",
   },
   {
     question: "Surxondaryo markazi qayer? ",
-    option: ["a.Jarqo'rg'on ", "b.Denov", "c.Termiz", "d.Boysun"],
-    answer: "c",
+    option: ["Jarqo'rg'on ", "Denov", "Termiz", "Boysun"],
+    answer: "Termiz",
   },
   {
     question: "Amalni bajaring 2+2*2 ? ",
-    option: ["a.6 ", "b.8", "c.4", "d.2"],
-    answer: "a",
+    option: ["6 ", "8", "4", "2"],
+    answer: "6",
   },
 ];
 // Email va loginni olish
-var email = prompt("Emailingizni kiriting:", "....@gamil.com");
-var login = prompt("Loginingizni kiriting:");
+let email = prompt("Emailingizni kiriting:", "....@gamil.com");
+let login = prompt("Loginingizni kiriting:", "......");
 
 // Foydalanuvchi kiritgan email va loginni alert orqali chiqarish
 alert(
@@ -125,15 +125,28 @@ function quizTest(questions) {
   for (let i = 0; i < 100000; i++) {
     let ds = i * i * i * i * i * i;
   }
+  // let newArr = getRandomisedQuestions();
   let score = 0;
+  let optionIndex;
+  let addOptions;
+  let j = Math.floor(Math.random() * questions.length);
   for (let i = 0; i < questions.length; i++) {
     let response = prompt(
       questions[i].question +
         "\n" +
-        questions[i].option.join("\n") +
-        "\n" +
-        `testni yakunlashni istasangiz "exit", "chiqish","cancel" ,"close","quit" kabi kalit so'zlardan foydalalning`
+        `a. ${questions[i].option.at(j - 0)}` +
+        `\n` +
+        `b. ${questions[i].option.at(j - 1)}` +
+        `\n` +
+        `c. ${questions[i].option.at(j - 2)}` +
+        `\n` +
+        `d. ${questions[i].option.at(j - 3)}` +
+        `\n testni yakunlashni istasangiz[ "exit", "chiqish","cancel" ,"close","quit" ]kabi kalit so'zlardan foydalaning`
     );
+    variant = ["a", "b", "c", "d"];
+    optionIndex = questions[i].option.indexOf(questions[i].answer);
+
+    addOptions = response.split("");
 
     if (
       response == "exit" ||
@@ -155,8 +168,10 @@ function quizTest(questions) {
       alert("Iltimos kalitlardan birini tanlang");
       i--;
     } else if (
-      response == questions[i].answer ||
-      response == questions[i].answer.toUpperCase()
+      variant.at(j - optionIndex) == response ||
+      response == variant.at(j - optionIndex).toUpperCase() ||
+      addOptions[0] == variant.at(j - optionIndex).toUpperCase() ||
+      addOptions[0] == variant.at(j - optionIndex)
     ) {
       score++;
     }
